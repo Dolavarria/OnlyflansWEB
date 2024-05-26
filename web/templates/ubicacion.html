@@ -1,0 +1,29 @@
+{% include 'base.html' %}
+
+<body>
+  {% include 'header.html' %}
+  {% include 'navbar.html' %}
+  <div class="container">
+    <div class="col-12 col-md-6 offset-0 offset-md-3 mt-4 mb-4">
+        <h3 class="text-center">Ubicación</h3>
+    </div>
+  <div id='map' class='mx-auto d-block' style='width: 400px; height: 300px;'></div>
+  <script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGllZ29hbGpuZHIiLCJhIjoiY2x2cTNvMnd6MDhqdjJpcDE0d2t6bDViNyJ9.h2XpnZm-g6Q7Zjw65TaYwQ';
+    var map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/mapbox/streets-v11',
+      center: [-70.65388113151351, -33.44225772696233], // longitud, latitud
+      zoom: 14
+    });
+
+    // Crea un nuevo marcador y lo añade al mapa
+    new mapboxgl.Marker()
+      .setLngLat([-70.65388113151351, -33.44225772696233]) // longitud, latitud
+      .addTo(map);
+  </script>
+  {% include 'footer.html' %}
+
+</body>
+
+</html>
